@@ -1,0 +1,38 @@
+<div class="container">
+  <form class="form" [formGroup]="formPizza" (ngSubmit)="onSubmit()" [hidden]="submitted">
+    <section class="form-block">
+      <label>Ajouter une pizza</label>
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input id="name" type="text"
+               formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="desc">Decription</label>
+        <input id="desc" type="text"
+               formControlName="desc">
+      </div>
+      <div class="form-group">
+        <label for="price">Prix</label>
+        <input id="price" type="number"
+               formControlName="price">
+      </div>
+      <div class="form-group">
+        <label for="picture">Image</label>
+        <input id="picture" type="text"
+               formControlName="picture">
+      </div>
+      <div class="form-group">
+        <label>Ingrédients</label>
+        <div *ngFor="let ingredient of listIngredients" class="checkbox">
+          <input type="checkbox" id="{{ingredient._id}}" (change)="setIngredient($event)" [checked]="ingredient.checked">
+          <label for="{{ingredient._id}}">{{ingredient.name}}</label>
+        </div>
+        <input type="hidden" formControlName="ingredients" />
+      </div>
+      <button class="btn btn-primary" *ngIf="id" type="submit" [disabled]="!formPizza.valid">Modifier</button>
+      <button class="btn btn-danger" (click)="delete()" *ngIf="id">Supprimer cette pizza</button>
+      <button class="btn btn-primary" *ngIf="!id" type="submit" [disabled]="!formPizza.valid">Ajouter</button>
+    </section>
+  </form>
+</div>

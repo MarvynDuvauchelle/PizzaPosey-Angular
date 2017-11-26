@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <ng-container *ngFor="let pizza of pizzas" (click)="setCurrentPizza(pizza)">
+      <a routerLink="/pizza/{{pizza._id}}">
+        <div class="card mb-3">
+          <img class="card-img-top" [src]="pizza.picture" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">{{pizza.name}}</h4>
+            <p class="card-text">{{pizza.desc}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </a>
+    </ng-container>
+      </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

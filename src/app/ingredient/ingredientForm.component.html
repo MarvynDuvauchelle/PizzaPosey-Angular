@@ -1,0 +1,24 @@
+<div class="container">
+  <form class="form" [formGroup]="formIngredient" (ngSubmit)="onSubmit()" [hidden]="submitted">
+    <section class="form-block">
+      <label>Ajouter un ingrédient</label>
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input id="name" type="text"
+               formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="desc">Poids</label>
+        <input id="weight" type="text"
+               formControlName="weight">
+      </div>
+      <div class="form-group">
+        <label for="price">Prix</label>
+        <input id="price" type="number"
+               formControlName="price">
+      </div>
+      <button class="btn btn-primary" *ngIf="id" type="submit" [disabled]="!formIngredient.valid">Modifier</button>
+      <button class="btn btn-primary" *ngIf="!id" type="submit" [disabled]="!formIngredient.valid">Ajouter</button>
+    </section>
+  </form>
+</div>

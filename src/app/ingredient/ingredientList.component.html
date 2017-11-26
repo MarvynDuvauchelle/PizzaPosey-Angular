@@ -1,0 +1,28 @@
+<div class="container">
+  <a routerLink="/ingredient/add">
+    <button class="btn btn-primary">Nouveau</button>
+  </a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Poids</th>
+        <th>Prix</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingredient of ingredients">
+        <td>{{ingredient.name}}</td>
+        <td>{{ingredient.weight}}</td>
+        <td>{{ingredient.price}}</td>
+        <td>
+          <a routerLink="/ingredient/edit/{{ingredient._id}}">
+            <button class="btn btn-primary">Modifier</button>
+          </a>
+            <button class="btn btn-danger" (click)="delete(ingredient._id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
