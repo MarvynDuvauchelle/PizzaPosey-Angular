@@ -56,9 +56,10 @@ export class PizzaFormComponent implements OnInit {
       });
     } else {
       this.ingredientService.get().subscribe(
-        data => this.ingredients = data
+        data => this.listIngredients = data
       );
     }
+    
   }
 
   onSubmit() {
